@@ -5,5 +5,7 @@
 - **Difficulty**: Advanced
 - **Topics**: Sprites, Tilemaps, AI
 - **Version**: Unity 2021.2
-- [**Download**](https://github.com/zigurous/unity-pacman-tutorial/archive/refs/heads/main.zip)
+
+**CREDITS**
+THIS WAS A WALK THROUGH TUTORIAL. BELOW IS THE WALKTHROUGH
 - [**Watch Video**](https://youtu.be/TKt_VlMn_aA)
