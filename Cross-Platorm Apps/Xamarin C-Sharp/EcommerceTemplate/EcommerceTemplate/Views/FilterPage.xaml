@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             x:Class="EcommerceTemplate.Views.FilterPage"
+             Shell.PresentationMode="ModalAnimated"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <ContentPage.BindingContext>
+        <vm:FilterViewModel />
+    </ContentPage.BindingContext>
+
+    <RelativeLayout>
+
+        <ScrollView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Width, Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height, Factor=1}">
+
+            <StackLayout Padding="10">
+
+                <Label Text="{x:Static res:AppResources.Filters}"
+                       Style="{StaticResource BoldTitlePrimaryLabelStyle}"
+                       HorizontalTextAlignment="Center"
+                       Padding="20" />
+
+                <Label Text="{x:Static res:AppResources.Categories}"
+                       Style="{StaticResource BoldPrimaryLabelStyle}"
+                       Margin="10, 0, 10, 0" />
+
+                <CollectionView ItemsSource="{Binding Categories}"
+                                SelectionMode="None"
+                                HeightRequest="50"
+                                Margin="5"
+                                HorizontalScrollBarVisibility="Never">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <ContentView Padding="5">
+
+                                <pv:PancakeView x:DataType="vm:CategoryViewModel"
+                                                CornerRadius="10"
+                                                BackgroundColor="{Binding BackgroundColor}">
+
+                                    <Label Text="{Binding Name}"
+                                           TextColor="{Binding TextColor}"
+                                           FontSize="Small"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           MinimumWidthRequest="70"
+                                           Margin="10"/>
+
+                                    <pv:PancakeView.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding Source={RelativeSource
+                                                                AncestorType={x:Type vm:FilterViewModel}}, Path=CategoryCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </pv:PancakeView.GestureRecognizers>
+
+                                </pv:PancakeView>
+
+                            </ContentView>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                <Label Text="{x:Static res:AppResources.Tags}"
+                       Style="{StaticResource BoldPrimaryLabelStyle}"
+                       Margin="10, 0, 10, 0" />
+
+                <CollectionView ItemsSource="{Binding Tags}"
+                                SelectionMode="None"
+                                HeightRequest="50"
+                                Margin="5"
+                                HorizontalScrollBarVisibility="Never">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <ContentView Padding="5">
+
+                                <pv:PancakeView x:DataType="vm:StringViewModel"
+                                                CornerRadius="10"
+                                                BackgroundColor="{Binding BackgroundColor}">
+
+                                    <Label Text="{Binding Name}"
+                                           TextColor="{Binding TextColor}"
+                                           FontSize="Small"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           MinimumWidthRequest="70"
+                                           Margin="10"/>
+
+                                    <pv:PancakeView.GestureRecognizers>
+
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding Source={RelativeSource
+                                                                AncestorType={x:Type vm:FilterViewModel}}, Path=TagCommand}"
+                                                              CommandParameter="{Binding .}" />
+
+                                    </pv:PancakeView.GestureRecognizers>
+
+                                </pv:PancakeView>
+
+                            </ContentView>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                <Label Text="{x:Static res:AppResources.Colors}"
+                       Style="{StaticResource BoldPrimaryLabelStyle}"
+                       Margin="10, 0, 10, 0" />
+
+                <CollectionView ItemsSource="{Binding Colors}"
+                                SelectionMode="None"
+                                HeightRequest="50"
+                                Margin="5"
+                                HorizontalScrollBarVisibility="Never">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <ContentView Padding="5">
+
+                                <pv:PancakeView x:DataType="vm:StringViewModel"
+                                                CornerRadius="10"
+                                                BackgroundColor="{Binding BackgroundColor}">
+
+                                    <Label Text="{Binding Name}"
+                                           TextColor="{Binding TextColor}"
+                                           FontSize="Small"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           MinimumWidthRequest="70"
+                                           Margin="10"/>
+
+                                    <pv:PancakeView.GestureRecognizers>
+
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding Source={RelativeSource
+                                                                AncestorType={x:Type vm:FilterViewModel}}, Path=ColorCommand}"
+                                                              CommandParameter="{Binding .}" />
+
+                                    </pv:PancakeView.GestureRecognizers>
+
+                                </pv:PancakeView>
+
+                            </ContentView>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                <Label Text="{x:Static res:AppResources.Materials}"
+                       Style="{StaticResource BoldPrimaryLabelStyle}"
+                       Margin="10, 0, 10, 0" />
+
+                <CollectionView ItemsSource="{Binding Materials}"
+                                SelectionMode="None"
+                                HeightRequest="50"
+                                Margin="5"
+                                HorizontalScrollBarVisibility="Never">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <ContentView Padding="5">
+                                <pv:PancakeView x:DataType="vm:StringViewModel"
+                                                CornerRadius="10"
+                                                BackgroundColor="{Binding BackgroundColor}">
+
+                                    <Label Text="{Binding Name}"
+                                           TextColor="{Binding TextColor}"
+                                           FontSize="Small"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"
+                                           MinimumWidthRequest="70"
+                                           Margin="10"/>
+
+                                    <pv:PancakeView.GestureRecognizers>
+
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding Source={RelativeSource
+                                                                AncestorType={x:Type vm:FilterViewModel}}, Path=MaterialCommand}"
+                                                              CommandParameter="{Binding .}"/>
+
+                                    </pv:PancakeView.GestureRecognizers>
+
+                                </pv:PancakeView>
+
+                            </ContentView>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+                <ContentView HeightRequest="134"/>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <pv:PancakeView Style="{StaticResource ButtonPanelStyle}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Width, Factor=1}"
+                        RelativeLayout.YConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Height, Factor=1,
+                            Constant=-134}">
+
+            <pv:PancakeView.Shadow>
+                <pv:DropShadow />
+            </pv:PancakeView.Shadow>
+
+            <StackLayout Spacing="20">
+
+                <Label Style="{StaticResource MediumSecondaryLabelStyle}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="24">
+
+                    <Label.FormattedText>
+
+                        <FormattedString>
+
+                            <Span Text="{x:Static res:AppResources.Clear}"
+                                  TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                        Dark={StaticResource PrimaryColorDark}}"
+                                  TextDecorations="Underline">
+
+                                <Span.GestureRecognizers>
+
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                          Command="{Binding ClearAllCommand}" />
+
+                                </Span.GestureRecognizers>
+
+                            </Span>
+
+                            <Span Text="{x:Static res:AppResources.AllFilters}" />
+
+                        </FormattedString>
+
+                    </Label.FormattedText>
+
+                </Label>
+
+                <StackLayout Orientation="Horizontal">
+
+                    <Button Style="{StaticResource SecondaryButtonStyle}"
+                            Text="{x:Static res:AppResources.Cancel}"
+                            Command="{Binding CancelCommand}"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="50"/>
+
+                    <Button Style="{StaticResource PrimaryButtonStyle}"
+                            Text="{x:Static res:AppResources.Apply}"
+                            Command="{Binding ApplyCommand}"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="50"/>
+
+                </StackLayout>
+
+            </StackLayout>
+
+        </pv:PancakeView>
+
+    </RelativeLayout>
+
+</ContentPage>

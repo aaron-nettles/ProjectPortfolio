@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcommerceTemplate.Views.ProductsPage"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:ctrl="clr-namespace:EcommerceTemplate.Controls"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:custom="clr-namespace:EcommerceTemplate.CustomViews"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <Shell.SearchHandler>
+
+        <ctrl:ProductSearchHandler Placeholder="{x:Static res:AppResources.EnterSearchTerm}"
+                                   ShowsResults="true">
+
+            <ctrl:ProductSearchHandler.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Label Text="{Binding Name}"
+                           Style="{StaticResource MediumSecondaryLabelStyle}"
+                           VerticalTextAlignment="Center"
+                           Padding="10" />
+
+                </DataTemplate>
+
+            </ctrl:ProductSearchHandler.ItemTemplate>
+
+        </ctrl:ProductSearchHandler>
+
+    </Shell.SearchHandler>
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Command="{Binding FilterCommand}">
+
+            <ToolbarItem.IconImageSource>
+
+                <FontImageSource FontFamily="Material"
+                                 Glyph="{x:Static md:Icons.FilterList}" />
+
+            </ToolbarItem.IconImageSource>
+
+        </ToolbarItem>
+
+        <ToolbarItem Command="{Binding SortCommand}">
+
+            <ToolbarItem.IconImageSource>
+
+                <FontImageSource FontFamily="Material"
+                                 Glyph="{x:Static md:Icons.SwapVert}" />
+
+            </ToolbarItem.IconImageSource>
+
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <RefreshView x:DataType="vm:ProductsViewModel"
+                 Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                 Padding="5">
+
+        <CollectionView ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical">
+                    <GridItemsLayout.Span>
+                        <OnIdiom x:TypeArguments="x:Int32">
+                            <OnIdiom.Phone>2</OnIdiom.Phone>
+                            <OnIdiom.Tablet>4</OnIdiom.Tablet>
+                        </OnIdiom>
+                    </GridItemsLayout.Span>
+                </GridItemsLayout>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <custom:ProductCarouselCard />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <Grid RowDefinitions="Auto, *, Auto">
+
+                    <ContentView />
+
+                    <StackLayout Padding="30"
+                                 Spacing="10"
+                                 Grid.Row="1"
+                                 VerticalOptions="Center">
+
+                        <Label Text="{x:Static res:AppResources.NoItems}"
+                               Style="{StaticResource MediumSecondaryLabelStyle}"
+                               HorizontalTextAlignment="Center" />
+
+                        <Image Margin="20">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static md:Icons.Search}"
+                                                 FontFamily="Material"
+                                                 Color="{AppThemeBinding Light={StaticResource SecondaryTextColorLight},
+                                                    Dark={StaticResource SecondaryTextColorDark}}"
+                                                 Size="120" />
+                            </Image.Source>
+                        </Image>
+
+                    </StackLayout>
+
+                    <ContentView Grid.Row="2" />
+
+                </Grid>
+
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+
+    </RefreshView>
+
+</ContentPage>

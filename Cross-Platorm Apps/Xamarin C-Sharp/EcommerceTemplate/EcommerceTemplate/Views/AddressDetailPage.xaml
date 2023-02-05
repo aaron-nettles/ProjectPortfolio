@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             x:Class="EcommerceTemplate.Views.AddressDetailPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <ContentPage.BindingContext>
+        <vm:AddressDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding DeleteCommand}">
+            <ToolbarItem.IconImageSource>
+
+                <FontImageSource FontFamily="Material"
+                                 Glyph="{x:Static md:Icons.DeleteOutline}" />
+
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <RelativeLayout>
+
+        <ScrollView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Width, Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height, Factor=1}">
+
+            <StackLayout Padding="20" Spacing="5">
+
+                <Label Text="{x:Static res:AppResources.Title}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}" />
+
+                <Entry Text="{Binding AddressTitle, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.FirstName}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding FirstName, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.LastName}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding LastName, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.Company}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding Company, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.AddressLine1}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding Address1, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.AddressLine2}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding Address2, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.City}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding City, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.State}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding State, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.PostCode}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding PostCode, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.Country}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding Country, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.Phone}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding Phone, Mode=TwoWay}" />
+
+                <ContentView HeightRequest="90"/>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <pv:PancakeView Style="{StaticResource ButtonPanelStyle}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+                                    Type=RelativeToParent, Property=Width, Factor=1}"
+                        RelativeLayout.YConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Height, Factor=1,Constant=-90}">
+
+            <pv:PancakeView.Shadow>
+                <pv:DropShadow />
+            </pv:PancakeView.Shadow>
+
+            <Button Style="{StaticResource PrimaryButtonStyle}"
+                    Text="{x:Static res:AppResources.Save}"
+                    Command="{Binding OkCommand}"
+                    HeightRequest="50"/>
+
+        </pv:PancakeView>
+
+    </RelativeLayout>
+
+</ContentPage>

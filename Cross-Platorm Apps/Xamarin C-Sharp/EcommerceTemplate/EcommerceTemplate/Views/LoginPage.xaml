@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:template="clr-namespace:EcommerceTemplate.ControlTemplates"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             mc:Ignorable="d"
+             x:Class="EcommerceTemplate.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{AppThemeBinding
+                Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <RelativeLayout>
+
+        <ScrollView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Width, Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height, Factor=1}">
+
+            <StackLayout Padding="30" Spacing="10">
+
+                <Label Text="{x:Static res:AppResources.WelcomeLogIn}"
+                       Style="{StaticResource TitlePrimaryLabelStyle}"
+                       HorizontalTextAlignment="Center"/>
+
+                <template:Badge BadgeIcon="{x:Static md:Icons.Spa}"
+                                ControlTemplate="{StaticResource BadgeControlTemplate}"/>
+
+                <Label Text="{x:Static res:AppResources.Username}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}" />
+
+                <Entry Text="{Binding CurrentPassword, Mode=TwoWay}" />
+
+                <Label Text="{x:Static res:AppResources.Password}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       Margin="0, 10, 0, 0" />
+
+                <Entry Text="{Binding NewPassword, Mode=TwoWay}" />
+
+                <StackLayout Orientation="Horizontal" Spacing="0">
+
+                    <Label Text="{x:Static res:AppResources.RememberMe}"
+                           Style="{StaticResource SmallTertiaryLabelStyle}"
+                           VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding RememberMeCommand}" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <CheckBox Color="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                              VerticalOptions="Center"
+                              IsChecked="{Binding RememberMe}" />
+
+                    <Label Text="{x:Static res:AppResources.ForgotPassword}"
+                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                           TextDecorations="Underline"
+                           FontSize="Medium"
+                           HorizontalTextAlignment="End"
+                           VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding ResetPasswordCommand}" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                </StackLayout>
+
+            <ContentView HeightRequest="134"/>
+
+        </StackLayout>
+
+        </ScrollView>
+
+        <pv:PancakeView Style="{StaticResource ButtonPanelStyle}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Width, Factor=1}"
+                        RelativeLayout.YConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Height, Factor=1,
+                            Constant=-134}">
+
+            <pv:PancakeView.Shadow>
+                <pv:DropShadow />
+            </pv:PancakeView.Shadow>
+
+            <StackLayout Spacing="20">
+
+                <Label Style="{StaticResource MediumSecondaryLabelStyle}"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="24">
+
+                    <Label.FormattedText>
+
+                        <FormattedString>
+
+                            <Span Text="{x:Static res:AppResources.DontHaveAccount}" />
+
+                            <Span Text="{x:Static res:AppResources.SignUp}"
+                                  TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                        Dark={StaticResource PrimaryColorDark}}"
+                                  TextDecorations="Underline">
+
+                                <Span.GestureRecognizers>
+
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                          Command="{Binding SignUpCommand}" />
+
+                                </Span.GestureRecognizers>
+
+                            </Span>
+
+                        </FormattedString>
+
+                    </Label.FormattedText>
+
+                </Label>
+
+                <Button Style="{StaticResource PrimaryButtonStyle}"
+                        Text="{x:Static res:AppResources.LogIn}"
+                        Command="{Binding LoginCommand}"
+                        HeightRequest="50"/>
+
+            </StackLayout>
+
+        </pv:PancakeView>
+
+    </RelativeLayout>
+
+</ContentPage>

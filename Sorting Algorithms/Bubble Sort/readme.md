@@ -1,0 +1,5 @@
+The code I provided implements the Bubble Sort algorithm in C++. The algorithm works by comparing pairs of adjacent elements in an array and swapping them if they are in the wrong order. The elements "bubble up" to their correct positions as the algorithm progresses. This process is repeated until the array is sorted in ascending order.
+
+In the code, we start by declaring a function bubbleSort that takes an array arr and its length n as parameters. Within the function, we have a for-loop that performs the sorting process by repeatedly swapping adjacent elements that are in the wrong order. The loop continues until no more swaps are necessary, at which point the array is sorted.
+
+To keep track of whether any swaps were made during each iteration of the loop, we use a variable swapped. If no swaps are made during an iteration, then the array must be sorted and we can break out of the loop. Finally, the sorted array is returned by the function.

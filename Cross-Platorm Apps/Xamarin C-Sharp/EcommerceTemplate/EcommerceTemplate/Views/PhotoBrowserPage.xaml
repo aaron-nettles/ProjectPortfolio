@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:customview="clr-namespace:EcommerceTemplate.CustomViews"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="EcommerceTemplate.Views.PhotoBrowserPage"
+             Shell.PresentationMode="ModalAnimated">
+
+    <ContentPage.BindingContext>
+        <vm:PhotoBrowserViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid ColumnDefinitions="120, *, 120"
+          RowDefinitions="120, *, 120">
+
+        <customview:PinchZoomView Grid.RowSpan="3"
+                                  Grid.ColumnSpan="3">
+
+            <customview:PinchZoomView.Content>
+
+                <Image Source="{Binding Image}"
+                       Aspect="AspectFill" />
+
+            </customview:PinchZoomView.Content>
+
+        </customview:PinchZoomView>
+
+        <pv:PancakeView Grid.Column="2"
+                        CornerRadius="25,25,25,25"
+                        WidthRequest="50"
+                        HeightRequest="50"
+                        BackgroundColor="#60000000"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+
+            <ImageButton Padding="10"
+                         Command="{Binding CloseCommand}"
+                         BackgroundColor="Transparent">
+
+                <ImageButton.Source>
+
+                    <FontImageSource Glyph="{x:Static md:Icons.Close}"
+                                     FontFamily="Material"
+                                     Color="WhiteSmoke"
+                                     Size="60" />
+
+                </ImageButton.Source>
+
+            </ImageButton>
+
+        </pv:PancakeView>
+
+        <CollectionView Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        ItemsSource="{Binding Images}"
+                        SelectionMode="None"
+                        BackgroundColor="#60000000">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <ContentView x:DataType="x:String"
+                                 Margin="0,0,15,0">
+
+                        <Image Aspect="AspectFill"
+                               Source="{Binding .}"
+                               WidthRequest="100"
+                               HeightRequest="100"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+
+                            <Image.GestureRecognizers>
+
+                                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PhotoBrowserViewModel}}, Path=ItemCommand}"
+                                                      CommandParameter="{Binding .}" />
+
+                            </Image.GestureRecognizers>
+
+                        </Image>
+
+                    </ContentView>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </Grid>
+
+</ContentPage>

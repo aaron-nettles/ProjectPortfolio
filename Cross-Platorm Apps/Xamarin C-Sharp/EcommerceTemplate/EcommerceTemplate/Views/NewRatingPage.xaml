@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:converter="clr-namespace:EcommerceTemplate.Converters"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             x:Class="EcommerceTemplate.Views.NewRatingPage"
+             Title="{Binding Title}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <ContentPage.Resources>
+        <converter:RatingStarConverter x:Key="RatingStarConverter"/>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <vm:NewRatingViewModel />
+    </ContentPage.BindingContext>
+
+    <RelativeLayout>
+
+        <ScrollView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Width, Factor=1}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height, Factor=1}">
+
+            <StackLayout Spacing="15" Padding="30">
+
+                <StackLayout Orientation="Horizontal" Spacing="15">
+
+                    <pv:PancakeView CornerRadius="20, 20, 20, 20">
+
+                        <Image Source="{Binding ProductImage}"
+                               Aspect="AspectFill"
+                               WidthRequest="100"
+                               HeightRequest="100" />
+
+                    </pv:PancakeView>
+
+                    <StackLayout VerticalOptions="Center">
+
+                        <Label Text="{Binding ProductName}"
+                               Style="{StaticResource TitleSecondaryLabelStyle}" />
+
+                        <Label Text="{Binding ProductDescription}"
+                               Style="{StaticResource SmallSecondaryLabelStyle}"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="3" />
+
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Label Text="{x:Static res:AppResources.YourRating}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}"
+                       VerticalOptions="Center" />
+
+
+                <StackLayout Orientation="Horizontal"
+                             x:DataType="vm:NewRatingViewModel">
+
+                    <Label Text="{Binding StarCount, Converter={StaticResource RatingStarConverter},
+                                ConverterParameter=0}"
+                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                           FontFamily="Material"
+                           FontSize="40"
+                           VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding StarCommand}"
+                                                  CommandParameter="1" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+
+                    <Label Text="{Binding StarCount, Converter={StaticResource RatingStarConverter},
+                                ConverterParameter=1}"
+                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                           FontFamily="Material"
+                           FontSize="40"
+                           VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding StarCommand}"
+                                                  CommandParameter="2" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <Label Text="{Binding StarCount, Converter={StaticResource RatingStarConverter},
+                                ConverterParameter=2}"
+                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                           FontFamily="Material"
+                           FontSize="40"
+                           VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding StarCommand}"
+                                                  CommandParameter="3" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <Label Text="{Binding StarCount, Converter={StaticResource RatingStarConverter},
+                                ConverterParameter=3}"
+                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                           FontFamily="Material"
+                           FontSize="40"
+                           VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding StarCommand}"
+                                                  CommandParameter="4" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                    <Label Text="{Binding StarCount, Converter={StaticResource RatingStarConverter},
+                                ConverterParameter=4}"
+                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                Dark={StaticResource PrimaryColorDark}}"
+                           FontFamily="Material"
+                           FontSize="40"
+                           VerticalOptions="Center">
+
+                        <Label.GestureRecognizers>
+
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding StarCommand}"
+                                                  CommandParameter="5" />
+
+                        </Label.GestureRecognizers>
+
+                    </Label>
+
+                </StackLayout>
+
+                <Label Text="{x:Static res:AppResources.YourReviewOptional}"
+                       Style="{StaticResource SmallTertiaryLabelStyle}" />
+
+                <pv:PancakeView CornerRadius="5,5,5,5"
+                                Border="{pv:BorderMarkup Thickness=1,
+                                    Color={AppThemeBinding Dark={StaticResource TertiaryTextColorDark},
+                                    Light={StaticResource TertiaryTextColorLight}}}">
+
+                    <Editor Text="{Binding Text, Mode=TwoWay}"
+                            AutoSize="TextChanges"
+                            FontSize="Medium"
+                            HeightRequest="150"
+                            MaxLength="1000"
+                            Keyboard="Chat" />
+
+                </pv:PancakeView>
+
+                <ContentView HeightRequest="90"/>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <pv:PancakeView Style="{StaticResource ButtonPanelStyle}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Width, Factor=1}"
+                        RelativeLayout.YConstraint="{ConstraintExpression
+                            Type=RelativeToParent, Property=Height, Factor=1,
+                            Constant=-90}">
+
+            <pv:PancakeView.Shadow>
+                <pv:DropShadow />
+            </pv:PancakeView.Shadow>
+
+            <Button Style="{StaticResource PrimaryButtonStyle}"
+                    Text="{x:Static res:AppResources.Submit}"
+                    Command="{Binding SubmitCommand}"
+                    HeightRequest="50"/>
+
+        </pv:PancakeView>
+
+    </RelativeLayout>
+
+</ContentPage>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:converter="clr-namespace:EcommerceTemplate.Converters"
+             x:Class="EcommerceTemplate.CustomViews.CartLineItemView"
+             x:DataType="vm:CartItemViewModel"
+             Padding="10">
+
+    <ContentView.Resources>
+        <converter:RemoveDeleteIconConverter x:Key="RemoveDeleteIconConverter"/>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+
+        <pv:PancakeView CornerRadius="20, 20, 20, 20"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource CardColorLight},
+                            Dark={StaticResource CardColorDark}}">
+
+            <Grid ColumnDefinitions="100, *, 60"
+                  RowDefinitions="*, *, *"
+                  RowSpacing="5"
+                  ColumnSpacing="10">
+
+                <Image Grid.RowSpan="3"
+                       Source="{Binding ProductImage}"
+                       Aspect="AspectFill"/>
+
+                <Label Grid.Column="1"
+                       Grid.Row="0"
+                       Text="{Binding ProductName}"
+                       MaxLines="1"
+                       LineBreakMode="TailTruncation"
+                       Style="{StaticResource MediumSecondaryLabelStyle}"
+                       Margin="0,5,0,0"
+                       VerticalTextAlignment="Center"/>
+
+                <Label Grid.Column="1"
+                       Grid.Row="1"
+                       Text="{Binding Total, StringFormat='${0:F2}'}"
+                       MaxLines="1"
+                       LineBreakMode="TailTruncation"
+                       Style="{StaticResource BoldMediumSecondaryLabelStyle}"
+                       VerticalTextAlignment="Center"/>
+
+                <Label Grid.Column="1"
+                       Grid.Row="2"
+                       Text="{Binding VariantString}"
+                       MaxLines="1"
+                       LineBreakMode="TailTruncation"
+                       Style="{StaticResource MediumSecondaryLabelStyle}"
+                       Margin="0,0,0,5"
+                       VerticalTextAlignment="Center"/>
+
+                <RelativeLayout Grid.Column="2"
+                                Grid.RowSpan="3">
+
+                    <Grid RowDefinitions="*, 2, *"
+                          ColumnSpacing="0"
+                          RowSpacing="0"
+                          RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent, Property=Width}"
+                          RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent, Property=Height}">
+
+                        <ImageButton BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                        Dark={StaticResource PrimaryColorDark}}"
+                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CartViewModel}},
+                                        Path=AddItemCommand}"
+                                     CommandParameter="{Binding .}"
+                                     Clicked="QuantityChanged"
+                                     Padding="10">
+
+                            <ImageButton.Source>
+
+                                <FontImageSource Glyph="{x:Static md:Icons.Add}"
+                                                 FontFamily="Material"
+                                                 Color="{AppThemeBinding Light={StaticResource TextColorOnPrimaryLight},
+                                                    Dark={StaticResource TextColorOnPrimaryDark}}"/>
+
+                            </ImageButton.Source>
+
+                        </ImageButton>
+
+                        <BoxView Grid.Row="1"
+                                 BackgroundColor="{AppThemeBinding Light={StaticResource CardColorLight},
+                                    Dark={StaticResource CardColorDark}}"
+                                 HeightRequest="1" />
+
+                        <ImageButton Grid.Row="2"
+                                     BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                        Dark={StaticResource PrimaryColorDark}}"
+                                     Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CartViewModel}}, Path=RemoveItemCommand}"
+                                     CommandParameter="{Binding .}"
+                                     Clicked="QuantityChanged"
+                                     Padding="10">
+
+                            <ImageButton.Source>
+
+                                <FontImageSource Glyph="{Binding Quantity, Converter={StaticResource RemoveDeleteIconConverter}}"
+                                                 FontFamily="Material"
+                                                 Color="{AppThemeBinding Light={StaticResource TextColorOnPrimaryLight},
+                                                    Dark={StaticResource TextColorOnPrimaryDark}}"/>
+
+                            </ImageButton.Source>
+
+                        </ImageButton>
+
+                    </Grid>
+
+                    <pv:PancakeView x:Name="pvQuantity"
+                                    x:FieldModifier="public"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    CornerRadius="20,20,20,20"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                        Dark={StaticResource PrimaryColorDark}}"
+                                    RelativeLayout.XConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                        Property=Width, Factor=0.5, Constant=-50}"
+                                    RelativeLayout.YConstraint= "{ConstraintExpression Type=RelativeToParent,
+                                        Property=Height, Factor=0.5, Constant=-20}">
+
+                        <pv:PancakeView.Border>
+
+                            <pv:Border Color="{AppThemeBinding Light={StaticResource CardColorLight},
+                                            Dark={StaticResource CardColorDark}}"
+                                       Thickness="2"/>
+
+                        </pv:PancakeView.Border>
+
+                        <Label Text="{Binding Quantity, StringFormat='{0}'}"
+                               TextColor="{AppThemeBinding Light={StaticResource TextColorOnPrimaryLight},
+                                    Dark={StaticResource TextColorOnPrimaryDark}}"
+                               FontSize="Small"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+
+                    </pv:PancakeView>
+
+                </RelativeLayout>
+
+            </Grid>
+
+        </pv:PancakeView>
+
+    </ContentView.Content>
+
+</ContentView>

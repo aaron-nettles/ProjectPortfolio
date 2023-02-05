@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{E2D409E9-CE78-4326-A9F1-A3E69B7D0D40}|Default">
+  <Debugger.DebugSourceFolders>
+    <String>/Users/aaronnettles/Library/Caches/VisualStudio/17.0/Symbols/raw.githubusercontent.com/mono/mono/a96bde9730e4c2244536ce5f4250e5e4f4e6780a</String>
+  </Debugger.DebugSourceFolders>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.1.0.1" />
+  <MonoDevelop.Ide.ItemProperties.Lift.Android PreferredExecutionTarget="Android.Pixel_3a_API_33_arm64-v8a" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_3a_API_33_arm64-v8a" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lift/Lift/Views/LessonPage.xaml">
+    <Files>
+      <File FileName="Lift/Lift/ReadMe.txt" Line="7" Column="13" />
+      <File FileName="Lift/Lift/Views/AddItemPage.xaml" Line="1" Column="1" />
+      <File FileName="Lift/Lift/Views/AddItemPage.xaml.cs" Line="15" Column="40" />
+      <File FileName="Lift/Lift/Views/LessonPage.xaml.cs" Line="57" Column="10" />
+      <File FileName="Lift/Lift/Views/LessonPage.xaml" Line="28" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LiftApp2.1" expanded="True">
+            <Node name="Lift" expanded="True">
+              <Node name="Views" expanded="True">
+                <Node name="AddItemPage.xaml" expanded="True" />
+                <Node name="LessonPage.xaml" expanded="True" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

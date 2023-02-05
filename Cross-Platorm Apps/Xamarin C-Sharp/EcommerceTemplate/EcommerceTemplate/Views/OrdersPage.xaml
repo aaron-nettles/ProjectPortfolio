@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:model="clr-namespace:EcommerceTemplate.Models"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             xmlns:converters="clr-namespace:EcommerceTemplate.Converters"
+             x:Class="EcommerceTemplate.Views.OrdersPage"
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <ContentPage.Resources>
+        <converters:OrderStatusIconConverter x:Key="OrderStatusIconConverter"/>
+        <converters:LongDateConverter x:Key="LongDateConverter"/>
+    </ContentPage.Resources>
+
+    <RefreshView x:DataType="vm:OrdersViewModel"
+                 Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                 Padding="5">
+
+        <CollectionView ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="0" />
+
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <ContentView Padding="10">
+
+                        <pv:PancakeView CornerRadius="20,20,20,20"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource CardColorLight},
+                                                    Dark={StaticResource CardColorDark}}">
+
+                            <Grid ColumnDefinitions="Auto, *, Auto"
+                                  RowDefinitions="Auto, Auto, Auto"
+                                  Padding="10"
+                                  RowSpacing="5"
+                                  x:DataType="model:Order">
+
+                                <Label Grid.RowSpan="3"
+                                       Text="{Binding Status, Converter={StaticResource OrderStatusIconConverter}}"
+                                       TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                            Dark={StaticResource PrimaryColorDark}}"
+                                       FontFamily="Material"
+                                       FontSize="30"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center" />
+
+                                <Label Grid.Column="1"
+                                       Style="{StaticResource SmallSecondaryLabelStyle}"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation">
+
+                                    <Label.FormattedText>
+
+                                        <FormattedString>
+
+                                            <Span Text="{Binding Status}"
+                                                  Style="{StaticResource BoldSmallSecondaryLabelStyle}"/>
+
+                                            <Span Text="{Binding Id, StringFormat=' #{0}'}" />
+
+                                        </FormattedString>
+
+                                    </Label.FormattedText>
+
+                                </Label>
+
+                                <Label Grid.Column="1"
+                                       Grid.Row="1"
+                                       Text="{Binding DateGmt, Converter={StaticResource LongDateConverter}}"
+                                       Style="{StaticResource SmallSecondaryLabelStyle}" />
+
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Column="1"
+                                             Grid.Row="2"
+                                             Spacing="0">
+
+                                    <Label Text="{x:Static res:AppResources.ShipTo}"
+                                           Style="{StaticResource SmallSecondaryLabelStyle}" />
+
+
+                                    <Label Text="{Binding ShippingAddress.Title}"
+                                           Style="{StaticResource SmallSecondaryLabelStyle}"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation" />
+
+                                </StackLayout>
+
+                                <Label Grid.Column="2"
+                                       Grid.RowSpan="3"
+                                       Text="{Binding GrandTotal, StringFormat='${0:F2}'}"
+                                       Style="{StaticResource BoldMediumSecondaryLabelStyle}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" />
+
+
+                                <Grid.GestureRecognizers>
+
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                          Command="{Binding Source={RelativeSource
+                                                            AncestorType={x:Type vm:OrdersViewModel}}, Path=ItemTapped}"
+                                                          CommandParameter="{Binding .}" />
+
+                                </Grid.GestureRecognizers>
+
+                            </Grid>
+
+                        </pv:PancakeView>
+
+                    </ContentView>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+
+                <Grid RowDefinitions="Auto, *, Auto">
+
+                    <ContentView />
+
+                    <StackLayout Padding="30"
+                                 Spacing="10"
+                                 Grid.Row="1"
+                                 VerticalOptions="Center">
+
+                        <Label Text="{x:Static res:AppResources.NoItems}"
+                               Style="{StaticResource MediumSecondaryLabelStyle}"
+                               HorizontalTextAlignment="Center" />
+
+                        <Image Margin="20">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static md:Icons.Search}"
+                                                 FontFamily="Material"
+                                                 Color="{AppThemeBinding Light={StaticResource SecondaryTextColorLight},
+                                                    Dark={StaticResource SecondaryTextColorDark}}"
+                                                 Size="120" />
+                            </Image.Source>
+                        </Image>
+
+                    </StackLayout>
+
+                    <ContentView Grid.Row="2" />
+
+                </Grid>
+
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+
+    </RefreshView>
+
+</ContentPage>

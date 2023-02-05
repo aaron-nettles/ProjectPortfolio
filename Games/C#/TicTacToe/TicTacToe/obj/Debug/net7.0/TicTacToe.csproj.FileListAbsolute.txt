@@ -1,0 +1,30 @@
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.deps.json
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.runtimeconfig.json
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.dll
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.pdb
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.csproj.AssemblyReference.cache
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.AssemblyInfoInputs.cache
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.AssemblyInfo.cs
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.dll
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/refint/TicTacToe.dll
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.pdb
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.genruntimeconfig.cache
+/Users/aaronnettles/Projects/TicTacToe/TicTacToe/obj/Debug/net7.0/ref/TicTacToe.dll
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.deps.json
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.runtimeconfig.json
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.dll
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/bin/Debug/net7.0/TicTacToe.pdb
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.csproj.AssemblyReference.cache
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.AssemblyInfoInputs.cache
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.AssemblyInfo.cs
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.csproj.CoreCompileInputs.cache
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.dll
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/refint/TicTacToe.dll
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.pdb
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/TicTacToe.genruntimeconfig.cache
+/Users/aaronnettles/Desktop/Capstone Web Dev Course/TicTacToe/TicTacToe/obj/Debug/net7.0/ref/TicTacToe.dll

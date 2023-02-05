@@ -1,0 +1,3 @@
+In the example, I created a 10000-element array and a linked list of the same size. I then time the operation of accessing the 1000th element in both data structures, and compare the execution time.
+
+The linked list operation obviously takes longer because each node in the linked list must be traversed to find the desired element, whereas in an array the element can be accessed directly using an index.

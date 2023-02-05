@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{57F70D0C-8153-4455-8C92-98A3B936FADC}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Lift.Android PreferredExecutionTarget="Android.Pixel_3a_API_33_arm64-v8a" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.Pixel_3a_API_33_arm64-v8a" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lift/Lift/Views/LessonPage.xaml.cs">
+    <Files>
+      <File FileName="Lift/Lift/Views/AddItemPage.xaml" Line="22" Column="21" />
+      <File FileName="Lift/Lift/Views/AddItemPage.xaml.cs" />
+      <File FileName="Lift/Lift/Views/LessonPage.xaml" Line="17" Column="1" />
+      <File FileName="Lift/Lift/Views/LessonPage.xaml.cs" Line="33" Column="35" />
+      <File FileName="Lift/Lift/AppShell.xaml" />
+      <File FileName="Lift/Lift/AppShell.xaml.cs" />
+      <File FileName="Lift/Lift/Views/AboutPage.xaml" />
+      <File FileName="../../.nuget/packages/xam.plugin.webview/2.1.3/readme.txt" />
+      <File FileName="Lift/Lift.iOS/Main.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LiftApp2.0" expanded="True">
+            <Node name="Lift" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Views" expanded="True">
+                <Node name="AddItemPage.xaml" expanded="True" />
+                <Node name="LessonPage.xaml" expanded="True">
+                  <Node name="LessonPage.xaml.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Lift.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.97E37854-AA31-41AD-AF2F-B0D3002CA0E3" />
+  <MultiItemStartupConfigurations />
+</Properties>

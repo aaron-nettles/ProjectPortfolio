@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{CCB02D69-75B6-4B11-9605-80465F7429B7}|Default">
+  <MonoDevelop.Ide.ItemProperties.EcommerceTemplate.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.97E37854-AA31-41AD-AF2F-B0D3002CA0E3" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.pixel_5_-_api_29" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.EcommerceTemplate.Android PreferredExecutionTarget="Android.pixel_5_-_api_29" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="EcommerceTemplate/ViewModels/LoginViewModel.cs">
+    <Files>
+      <File FileName="EcommerceTemplate/ViewModels/LoginViewModel.cs" Line="37" Column="54" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EcommerceTemplate" expanded="True">
+            <Node name="EcommerceTemplate" expanded="True">
+              <Node name="ViewModels" expanded="True">
+                <Node name="LoginViewModel.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.1.0.1" />
+</Properties>

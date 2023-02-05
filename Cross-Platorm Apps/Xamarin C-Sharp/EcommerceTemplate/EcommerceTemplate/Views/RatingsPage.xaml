@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcommerceTemplate.Views.RatingsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:EcommerceTemplate.ViewModels"
+             xmlns:model="clr-namespace:EcommerceTemplate.Models"
+             xmlns:md="clr-namespace:EcommerceTemplate.MaterialDesign"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:converter="clr-namespace:EcommerceTemplate.Converters"
+             xmlns:res="clr-namespace:EcommerceTemplate.Resources"
+             BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},
+                Light={StaticResource BackgroundColorLight}}">
+
+    <ContentPage.Resources>
+        <converter:ShortDateConverter x:Key="ShortDateConverter"/>
+        <converter:RatingStarConverter x:Key="RatingStarConverter"/>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="{x:Static res:AppResources.Add}"
+                     Command="{Binding AddRatingCommand}">
+
+            <ToolbarItem.IconImageSource>
+
+                <FontImageSource FontFamily="Material"
+                                 Glyph="{x:Static md:Icons.Add}" />
+
+            </ToolbarItem.IconImageSource>
+
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <RefreshView x:DataType="local:RatingsViewModel"
+                 Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                 Padding="5">
+
+        <CollectionView ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="0" />
+
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <ContentView Padding="10">
+
+                        <pv:PancakeView CornerRadius="20,20,20,20"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource CardColorLight},
+                                            Dark={StaticResource CardColorDark}}">
+
+                            <StackLayout Padding="10"
+                                         x:DataType="model:Rating">
+
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Label Text="{Binding CustomerFullName}"
+                                           Style="{StaticResource BoldSmallSecondaryLabelStyle}"
+                                           LineBreakMode="NoWrap"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding DateGmt, Converter={StaticResource ShortDateConverter}}"
+                                           Style="{StaticResource SmallSecondaryLabelStyle}"
+                                           VerticalOptions="Center" />
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Label Text="{Binding Star, Converter={StaticResource RatingStarConverter},
+                                                ConverterParameter=0}"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                                Dark={StaticResource PrimaryColorDark}}"
+                                           FontFamily="Material"
+                                           FontSize="Large"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding Star, Converter={StaticResource RatingStarConverter}, ConverterParameter=1}"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                                Dark={StaticResource PrimaryColorDark}}"
+                                           FontFamily="Material"
+                                           FontSize="Large"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding Star, Converter={StaticResource RatingStarConverter},
+                                                ConverterParameter=2}"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                                Dark={StaticResource PrimaryColorDark}}"
+                                           FontFamily="Material"
+                                           FontSize="Large"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding Star, Converter={StaticResource RatingStarConverter},
+                                                ConverterParameter=3}"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                                Dark={StaticResource PrimaryColorDark}}"
+                                           FontFamily="Material"
+                                           FontSize="Large"
+                                           VerticalOptions="Center" />
+
+                                    <Label Text="{Binding Star, Converter={StaticResource RatingStarConverter},
+                                                ConverterParameter=4}"
+                                           TextColor="{AppThemeBinding Light={StaticResource PrimaryColorLight},
+                                                Dark={StaticResource PrimaryColorDark}}"
+                                           FontFamily="Material"
+                                           FontSize="Large"
+                                           VerticalOptions="Center" />
+
+                                </StackLayout>
+
+                                <Label Text="{Binding Text}"
+                                       Style="{StaticResource SmallSecondaryLabelStyle}"
+                                       VerticalOptions="Center" />
+
+                            </StackLayout>
+
+                        </pv:PancakeView>
+
+                    </ContentView>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+
+                <Grid RowDefinitions="Auto, *, Auto">
+
+                    <ContentView />
+
+                    <StackLayout Padding="30"
+                                 Spacing="10"
+                                 Grid.Row="1"
+                                 VerticalOptions="Center">
+
+                        <Label Text="{x:Static res:AppResources.NoItems}"
+                               Style="{StaticResource MediumSecondaryLabelStyle}"
+                               HorizontalTextAlignment="Center" />
+
+                        <Image Margin="20">
+                            <Image.Source>
+                                <FontImageSource Glyph="{x:Static md:Icons.Search}"
+                                                 FontFamily="Material"
+                                                 Color="{AppThemeBinding Light={StaticResource SecondaryTextColorLight},
+                                                    Dark={StaticResource SecondaryTextColorDark}}"
+                                                 Size="120" />
+                            </Image.Source>
+                        </Image>
+
+                    </StackLayout>
+
+                    <ContentView Grid.Row="2" />
+
+                </Grid>
+
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+
+    </RefreshView>
+
+</ContentPage>

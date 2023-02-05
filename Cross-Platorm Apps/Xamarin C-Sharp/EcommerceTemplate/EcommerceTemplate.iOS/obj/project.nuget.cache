@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "wIbkx3whvEV9a+fcmhAhUVUJ9Vmz9PpvY887gH75U+s8SmRQECzBEJLEfxh2U7yzahJM5IKJEvxr6cHjkl6hCA==",
+  "success": true,
+  "projectFilePath": "/Users/aaronnettles/Downloads/Xamarin.Forms/EcommerceTemplate/EcommerceTemplate.iOS/EcommerceTemplate.iOS.csproj",
+  "expectedPackageFiles": [
+    "/Users/aaronnettles/.nuget/packages/carouselview.formsplugin/6.0.0/carouselview.formsplugin.6.0.0.nupkg.sha512",
+    "/Users/aaronnettles/.nuget/packages/system.componentmodel/4.3.0/system.componentmodel.4.3.0.nupkg.sha512",
+    "/Users/aaronnettles/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/aaronnettles/.nuget/packages/xamarin.essentials/1.7.3/xamarin.essentials.1.7.3.nupkg.sha512",
+    "/Users/aaronnettles/.nuget/packages/xamarin.forms/5.0.0.2478/xamarin.forms.5.0.0.2478.nupkg.sha512",
+    "/Users/aaronnettles/.nuget/packages/xamarin.forms.pancakeview/2.3.0.759/xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512"
+  ],
+  "logs": []
+}

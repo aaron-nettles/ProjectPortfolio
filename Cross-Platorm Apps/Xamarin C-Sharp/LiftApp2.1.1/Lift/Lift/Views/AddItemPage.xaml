@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Lift.Views.AddItemPage">
+    <ContentPage.Content>
+      <StackLayout>
+<StackLayout>
+    <Entry x:Name="TitleEntry" Placeholder="Title" />
+    <Editor x:Name="DescriptionEditor" Placeholder="Description" />
+    <Button Text="Upload Video" Clicked="Button_Clicked" />
+        <ProgressBar x:Name="progressBar" Progress="{Binding UploadProgress}"/>
+    <Label x:Name="uploadStatus" Text="{Binding UploadStatus}" HorizontalOptions="CenterAndExpand"/>
+        <Label x:Name="downloadLink" />
+    <Button x:Name="Button2" Text="Save Lesson" Clicked="OnClick_Button2" />
+</StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button Text=" Back Home " Command="{Binding GoBack}" VerticalOptions="CenterAndExpand" />
+            <!--Make it where this button appears after save lesson is clicked-->
+            <Button x:Name="ViewLessonButton" Text="View Lesson" IsVisible="{Binding IsLessonSaved}"/>
+        </StackLayout>
+    </StackLayout>  
+    </ContentPage.Content>
+</ContentPage>
