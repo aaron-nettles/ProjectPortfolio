@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+//functional test
 
 // Function to print the elements of an array
 void printArray(int arr[], int size) {
