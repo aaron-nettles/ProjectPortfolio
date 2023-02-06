@@ -1,4 +1,4 @@
-The code I provided is an implementation of the merge sort algorithm in C++. It sorts an array of integers in ascending order.
+The code in C++. It sorts an array of integers in ascending order.
 
 The code starts by defining a function called merge_sort which takes two arguments: an integer array arr and its size n. The function is responsible for dividing the array into two halves, sorting each half and then merging them back into a single sorted array.
 
