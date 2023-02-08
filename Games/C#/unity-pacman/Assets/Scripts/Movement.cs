@@ -3,34 +3,48 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
+    // Public variables for speed, speedMultiplier, initialDirection and obstacleLayer for the movement.
     public float speed = 8f;
     public float speedMultiplier = 1f;
     public Vector2 initialDirection;
     public LayerMask obstacleLayer;
 
+    // Variables for the rigidbody component, direction and nextDirection of movement, and starting position of the object.
     public new Rigidbody2D rigidbody { get; private set; }
     public Vector2 direction { get; private set; }
     public Vector2 nextDirection { get; private set; }
     public Vector3 startingPosition { get; private set; }
 
+    // Function called before the start of the game.
     private void Awake()
     {
+        // Get the Rigidbody2D component and store it in the `rigidbody` variable.
         rigidbody = GetComponent<Rigidbody2D>();
+        // Store the starting position of the object.
         startingPosition = transform.position;
     }
 
+    // Function called at the start of the game.
     private void Start()
     {
+        // Call the ResetState function.
         ResetState();
     }
 
+    // Function to reset the state of the object.
     public void ResetState()
     {
+        // Reset the speedMultiplier to 1.
         speedMultiplier = 1f;
+        // Set the direction to the initialDirection.
         direction = initialDirection;
+        // Reset the nextDirection to zero.
         nextDirection = Vector2.zero;
+        // Set the position of the object back to the startingPosition.
         transform.position = startingPosition;
+        // Make sure that the rigidbody component is not kinematic.
         rigidbody.isKinematic = false;
+        // Enable the script component.
         enabled = true;
     }
 

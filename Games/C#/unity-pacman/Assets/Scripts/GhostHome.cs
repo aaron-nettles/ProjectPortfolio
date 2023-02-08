@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class GhostHome : GhostBehavior
 {
+    // Variables to store the positions of inside and outside of the home
     public Transform inside;
     public Transform outside;
 
     private void OnEnable()
     {
+        // Stop all coroutines currently running in the program
         StopAllCoroutines();
     }
 
     private void OnDisable()
     {
-        // Check for active self to prevent error when object is destroyed
+        // Check for active self or hierarchy to prevent error when object is destroyed
         if (gameObject.activeInHierarchy) {
+            // Start a coroutine to animate the exit transition
             StartCoroutine(ExitTransition());
         }
     }

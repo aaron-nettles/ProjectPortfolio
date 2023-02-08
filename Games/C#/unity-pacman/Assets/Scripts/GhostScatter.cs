@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class GhostScatter : GhostBehavior
 {
+    // Start the "Chase" behavior when this behavior is disabled
     private void OnDisable()
     {
         ghost.chase.Enable();
     }
-
+    // Handle the trigger when entering a node
     private void OnTriggerEnter2D(Collider2D other)
     {
         Node node = other.GetComponent<Node>();
@@ -28,7 +29,7 @@ public class GhostScatter : GhostBehavior
                     index = 0;
                 }
             }
-
+            // Set the ghost's direction to the selected direction
             ghost.movement.SetDirection(node.availableDirections[index]);
         }
     }
