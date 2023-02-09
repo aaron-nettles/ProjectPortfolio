@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &371206846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -240,8 +240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -45}
-  m_SizeDelta: {x: -200, y: -110}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -200, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371206847
 MonoBehaviour:
@@ -670,7 +670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 325, y: 176}
+  m_AnchoredPosition: {x: 377.25, y: 180}
   m_SizeDelta: {x: 650, y: 352}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860554931
@@ -928,7 +928,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Rules: \n-Don't Get Eaten!\n-Pellets Worth 10pts each\n-Power Pellets
-    last for 12 secs\n-You start with 3 lives\n-Frighten Ghost worth 200 pts\n\nOptional
+    last for 12 secs\n-You start with 3 lives\n-Frighten Ghost worth 200 pts\nOptional
     Keys: W for up, Z for down, A for left, S for right"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f27b09a698a704d96b79ec24c7ec7f72, type: 2}
@@ -962,7 +962,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1044,7 +1044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: -96}
+  m_AnchoredPosition: {x: 178, y: -95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032243040
